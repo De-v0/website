@@ -1,3 +1,948 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>yuri-thighs.mom</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        :root {
+            --background: #edf8f0;
+            --surface: #f8fff9;
+
+            --text: #26352b;
+            --muted: #7d8981;
+
+            --line: #cbd8ce;
+
+            --green: #4ca875;
+            --green-dark: #367b53;
+
+            --red: #d94b55;
+
+            --domain-hover: #367b53;
+            --domain-hover-text: #f3fff6;
+        }
+
+        body.dark {
+            --background: #111a15;
+            --surface: #18231c;
+
+            --text: #e5eee7;
+            --muted: #849088;
+
+            --line: #34443a;
+
+            --green: #68c58e;
+            --green-dark: #4eaa75;
+
+            --red: #e45b64;
+
+            --domain-hover: #68c58e;
+            --domain-hover-text: #102018;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+
+            background: var(--background);
+            color: var(--text);
+
+            font-family: "Montserrat", sans-serif;
+
+            transition:
+                background 0.25s ease,
+                color 0.25s ease;
+        }
+
+        .page {
+            width: min(900px, calc(100% - 40px));
+
+            margin: auto;
+
+            padding: 65px 0;
+        }
+
+        /* =========================
+           HEADER
+           ========================= */
+
+        .top {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                auto
+                1fr;
+
+            align-items: center;
+
+            width: 92%;
+
+            margin: 0 auto;
+        }
+
+        .top-left {
+            display: flex;
+
+            align-items: baseline;
+
+            gap: 10px;
+
+            justify-self: start;
+        }
+
+        .filename {
+            margin: 0;
+
+            color: var(--red);
+
+            font-size: 42px;
+
+            font-weight: 700;
+
+            letter-spacing: -1.5px;
+        }
+
+        .subtitle {
+            color: var(--muted);
+
+            font-size: 13px;
+
+            font-weight: 500;
+        }
+
+        .clock {
+            justify-self: center;
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+            font-weight: 500;
+
+            font-variant-numeric: tabular-nums;
+        }
+
+        .theme-button {
+            justify-self: end;
+
+            padding: 7px 12px;
+
+            border: 1px solid var(--line);
+
+            border-radius: 4px;
+
+            background: transparent;
+
+            color: var(--muted);
+
+            font-family: inherit;
+
+            font-size: 11px;
+
+            cursor: pointer;
+        }
+
+        .theme-button:hover {
+            color: var(--green);
+
+            border-color: var(--green);
+        }
+
+        /* =========================
+           LINE
+           ========================= */
+
+        .top-line {
+            width: 92%;
+
+            height: 1px;
+
+            margin: 10px auto;
+
+            background: var(--line);
+        }
+
+        /* =========================
+           RELOAD
+           ========================= */
+
+        .reload-wrapper {
+            display: flex;
+
+            justify-content: flex-end;
+
+            width: 92%;
+
+            margin: 0 auto 40px;
+        }
+
+        .reload {
+            width: 24px;
+            height: 24px;
+
+            object-fit: contain;
+
+            cursor: pointer;
+
+            opacity: 0.6;
+
+            transition:
+                opacity 0.15s ease,
+                transform 0.15s ease;
+        }
+
+        .reload:hover {
+            opacity: 1;
+
+            transform: rotate(25deg);
+        }
+
+        /* =========================
+           BIO
+           ========================= */
+
+        .intro {
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 30px;
+
+            margin-bottom: 45px;
+        }
+
+        .profile {
+            width: 150px;
+            height: 150px;
+
+            flex-shrink: 0;
+
+            object-fit: cover;
+
+            border: 1px solid #929292;
+
+            border-radius: 4px;
+        }
+
+        .bio {
+            flex: 1;
+        }
+
+        .bio h2 {
+            margin: 0 0 12px;
+
+            font-size: 24px;
+
+            font-weight: 600;
+        }
+
+        .bio p {
+            margin: 0 0 12px;
+
+            max-width: 620px;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+        }
+
+        .green {
+            color: var(--green-dark);
+        }
+
+        /* =========================
+           LINES
+           ========================= */
+
+        .line {
+            width: 100%;
+
+            height: 1px;
+
+            margin: 35px 0;
+
+            background: var(--line);
+        }
+
+        /* =========================
+           SECTIONS
+           ========================= */
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            margin: 0 0 15px;
+
+            font-size: 18px;
+
+            font-weight: 600;
+        }
+
+        section p {
+            font-size: 14px;
+
+            line-height: 1.8;
+        }
+
+        /* =========================
+           PROJECT
+           ========================= */
+
+        .project {
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            width: 100%;
+
+            padding: 10px 12px;
+
+            border: 1px solid var(--line);
+
+            border-radius: 5px;
+
+            color: var(--text);
+
+            text-decoration: none;
+
+            transition:
+                background 0.15s ease,
+                border-color 0.15s ease,
+                transform 0.15s ease;
+        }
+
+        .project:hover {
+            background: var(--surface);
+
+            border-color: var(--green);
+
+            transform: translateY(-1px);
+        }
+
+        .project img {
+            width: 34px;
+            height: 34px;
+
+            object-fit: contain;
+
+            flex-shrink: 0;
+        }
+
+        .project-name {
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+        /* =========================
+           SKILLS
+           ========================= */
+
+        .skills {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-top: 18px;
+        }
+
+        .skill {
+            width: 70px;
+            height: 70px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 10px;
+
+            border: 1px solid var(--line);
+
+            border-radius: 5px;
+
+            background: transparent;
+
+            transition:
+                border-color 0.15s ease,
+                background 0.15s ease,
+                transform 0.15s ease;
+        }
+
+        .skill img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: contain;
+        }
+
+        .skill:hover {
+            border-color: var(--green);
+
+            background: var(--surface);
+
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           LINKS
+           ========================= */
+
+        .links {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+        .links a {
+            padding: 8px 13px;
+
+            border: 1px solid var(--line);
+
+            border-radius: 4px;
+
+            color: var(--green-dark);
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 500;
+        }
+
+        .links a:hover {
+            background: var(--surface);
+
+            border-color: var(--green);
+
+            color: var(--green);
+        }
+
+        /* =========================
+           BADGES
+           ========================= */
+
+        .badges {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-top: 15px;
+        }
+
+        .badge {
+            width: 88px;
+            height: 31px;
+
+            object-fit: fill;
+
+            display: block;
+        }
+
+        /* =========================
+           ABOUT DOMAIN
+           ========================= */
+
+        .domain-info {
+            display: block;
+
+            width: fit-content;
+
+            margin: 60px auto 16px;
+
+            padding: 12px 20px;
+
+            border: 1px solid var(--line);
+
+            border-radius: 5px;
+
+            color: var(--green-dark);
+
+            text-decoration: none;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            transition:
+                background 0.15s ease,
+                color 0.15s ease,
+                border-color 0.15s ease,
+                transform 0.15s ease;
+        }
+
+        .domain-info:hover {
+            background: var(--domain-hover);
+
+            color: var(--domain-hover-text);
+
+            border-color: var(--domain-hover);
+
+            transform: translateY(-1px);
+        }
+
+        .domain {
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+            font-weight: 500;
+        }
+
+        footer {
+            margin-top: 12px;
+
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: 11px;
+        }
+
+        /* =========================
+           MOBILE
+           ========================= */
+
+        @media (max-width: 600px) {
+
+            .page {
+                width: calc(100% - 28px);
+
+                padding: 45px 0;
+            }
+
+            .top {
+                display: flex;
+
+                flex-direction: column;
+
+                gap: 12px;
+            }
+
+            .top-left {
+                justify-self: center;
+            }
+
+            .clock {
+                justify-self: center;
+            }
+
+            .theme-button {
+                justify-self: center;
+            }
+
+            .filename {
+                font-size: 32px;
+            }
+
+            .intro {
+                flex-direction: column;
+
+                align-items: center;
+
+                text-align: center;
+            }
+
+            .profile {
+                width: 130px;
+                height: 130px;
+            }
+
+            .bio p {
+                margin-left: auto;
+
+                margin-right: auto;
+            }
+
+            .links,
+            .badges,
+            .skills {
+                justify-content: center;
+            }
+
+            .domain-info {
+                font-size: 15px;
+
+                padding: 11px 17px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- HEADER -->
+
+    <header class="top">
+
+        <div class="top-left">
+
+            <h1 class="filename">
+                index.html
+            </h1>
+
+            <span class="subtitle">
+                by yuri lover
+            </span>
+
+        </div>
+
+        <div
+            class="clock"
+            id="clock"
+        >
+            00:00:00
+        </div>
+
+        <button
+            class="theme-button"
+            id="themeToggle"
+        >
+            switch to dark
+        </button>
+
+    </header>
+
+    <div class="top-line"></div>
+
+    <!-- RELOAD -->
+
+    <div class="reload-wrapper">
+
+        <img
+            src="content/reload.png"
+            alt="Reload page"
+            class="reload"
+            id="reloadButton"
+            title="Reload page"
+        >
+
+    </div>
+
+    <!-- BIO -->
+
+    <div class="intro">
+
+        <img
+            src="content/profer.jpg"
+            alt="Profile picture"
+            class="profile"
+        >
+
+        <div class="bio">
+
+            <h2>
+                Hi, I'm
+                <span class="green">
+                    Addou
+                </span>.
+            </h2>
+
+            <p>
+                I'm a software engineer that enjoys fixing bugs,
+                tinkering with old hardware, and programming.
+            </p>
+
+            <p>
+                I mostly program in Shell or Ren'Py, but I love
+                other programming languages and know some common ones.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="line"></div>
+
+    <!-- PROJECTS -->
+
+    <section>
+
+        <h2>
+            projects
+        </h2>
+
+        <p>
+            Anything I've contributed to will be linked here.
+        </p>
+
+        <a
+            class="project"
+            href="https://github.com/ppy/osu"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+
+            <img
+                src="content/osu.png"
+                alt="osu! logo"
+            >
+
+            <span class="project-name">
+                osu!lazer : Discord RPC and dashboard issues
+            </span>
+
+        </a>
+
+    </section>
+
+    <div class="line"></div>
+
+    <!-- SKILLS -->
+
+    <section>
+
+        <h2>
+            skills
+        </h2>
+
+        <div class="skills">
+
+            <a
+                class="skill"
+                href="https://developer.mozilla.org/en-US/docs/Web/HTML"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="HTML documentation"
+            >
+                <img
+                    src="content/html.webp"
+                    alt="HTML"
+                >
+            </a>
+
+            <a
+                class="skill"
+                href="https://developer.mozilla.org/en-US/docs/Web/CSS"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="CSS documentation"
+            >
+                <img
+                    src="content/css.webp"
+                    alt="CSS"
+                >
+            </a>
+
+            <a
+                class="skill"
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="JavaScript documentation"
+            >
+                <img
+                    src="content/js.png"
+                    alt="JavaScript"
+                >
+            </a>
+
+            <a
+                class="skill"
+                href="https://git-scm.com/doc"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Git documentation"
+            >
+                <img
+                    src="content/git.svg"
+                    alt="Git"
+                >
+            </a>
+
+            <a
+                class="skill"
+                href="https://docs.python.org/3/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Python documentation"
+            >
+                <img
+                    src="content/python.webp"
+                    alt="Python"
+                >
+            </a>
+
+            <a
+                class="skill"
+                href="https://www.renpy.org/doc/html/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Ren'Py documentation"
+            >
+                <img
+                    src="content/renpy.png"
+                    alt="Ren'Py"
+                >
+            </a>
+
+            <a
+                class="skill"
+                href="https://www.gnu.org/software/bash/manual/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Shell documentation"
+            >
+                <img
+                    src="content/shell.gif"
+                    alt="Shell"
+                >
+            </a>
+
+            <a
+                class="skill"
+                href="https://wiki.archlinux.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Arch Linux Wiki"
+            >
+                <img
+                    src="content/tux.webp"
+                    alt="Linux"
+                >
+            </a>
+
+        </div>
+
+    </section>
+
+    <div class="line"></div>
+
+    <!-- CONTACT -->
+
+    <section>
+
+        <h2>
+            contact
+        </h2>
+
+        <div class="links">
+
+            <a href="mailto:addou@yuri-thighs.mom">
+                email
+            </a>
+
+            <a
+                href="https://github.com/De-v0"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                github
+            </a>
+
+        </div>
+
+    </section>
+
+    <div class="line"></div>
+
+    <!-- BADGES -->
+
+    <section>
+
+        <h2>
+            88 × 31
+        </h2>
+
+        <div class="badges">
+
+            <img
+                src="content/newgame.png"
+                alt="New Game!"
+                class="badge"
+            >
+
+            <img
+                src="content/caramelldansen.gif"
+                alt="Caramelldansen"
+                class="badge"
+            >
+
+            <img
+                src="content/blends.gif"
+                alt="Blends"
+                class="badge"
+            >
+
+            <img
+                src="content/archlinux.gif"
+                alt="Arch Linux"
+                class="badge"
+            >
+
+            <img
+                src="content/anythingbut.gif"
+                alt="Anything But"
+                class="badge"
+            >
+
+        </div>
+
+    </section>
+
+    <!-- ABOUT DOMAIN -->
+
+    <a
+        href="about/index.html"
+        class="domain-info"
+    >
+        about yuri-thighs.mom
+    </a>
+
+    <div class="domain">
+        yuri-thighs.mom
+    </div>
+
+    <footer>
+        © yuri-thighs.mom
+    </footer>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
+```
 <!DOCTYPE html>
 <html lang="en">
 
