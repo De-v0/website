@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>/about/index.html</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        :root {
+            --background: #edf8f0;
+            --surface: #f8fff9;
+            --text: #26352b;
+            --muted: #7d8981;
+            --line: #cbd8ce;
+            --green: #4ca875;
+            --green-dark: #367b53;
+            --red: #d94b55;
+        }
+
+        body.dark {
+            --background: #111a15;
+            --surface: #18231c;
+            --text: #e5eee7;
+            --muted: #849088;
+            --line: #34443a;
+            --green: #68c58e;
+            --green-dark: #4eaa75;
+            --red: #e45b64;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+
+            background: var(--background);
+            color: var(--text);
+
+            font-family: "Montserrat", sans-serif;
+
+            transition:
+                background 0.25s ease,
+                color 0.25s ease;
+        }
+
+        .page {
+            width: min(900px, calc(100% - 40px));
+
+            margin: auto;
+
+            padding: 65px 0;
+        }
+
+
+        /* HEADER */
+
+        .header {
+            width: 92%;
+
+            margin: 0 auto;
+        }
+
+        .filename {
+            margin: 0;
+
+            color: var(--red);
+
+            font-size: 42px;
+            font-weight: 700;
+
+            letter-spacing: -1.5px;
+        }
+
+        .top-line {
+            width: 92%;
+            height: 1px;
+
+            margin: 10px auto 50px;
+
+            background: var(--line);
+        }
+
+
+        /* CONTENT */
+
+        .content {
+            width: 92%;
+
+            margin: 0 auto;
+        }
+
+        h2 {
+            margin: 0 0 18px;
+
+            color: var(--green-dark);
+
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        h3 {
+            margin-top: 40px;
+
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        p {
+            max-width: 750px;
+
+            margin: 0 0 18px;
+
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .secure {
+            color: var(--green-dark);
+
+            font-weight: 600;
+        }
+
+
+        /* BACK */
+
+        .back {
+            display: inline-block;
+
+            margin-top: 35px;
+
+            color: var(--green-dark);
+
+            font-size: 13px;
+
+            text-decoration: none;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            .page {
+                width: calc(100% - 28px);
+
+                padding: 45px 0;
+            }
+
+            .filename {
+                font-size: 32px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <h1 class="filename">
+            /about/index.html
+        </h1>
+
+    </header>
+
+
+    <!-- LINE -->
+
+    <div class="top-line"></div>
+
+
+    <!-- CONTENT -->
+
+    <main class="content">
+
+
+        <h2>
+            about yuri-thighs.mom
+        </h2>
+
+
+        <p>
+            yuri-thighs.mom is a personal domain for this website
+            and other personal projects.
+        </p>
+
+
+        <p>
+            The domain is being used as a personal portfolio and
+            programming website, despite the questionable name.
+        </p>
+
+
+        <h3>
+            Security
+        </h3>
+
+
+        <p>
+            HTTPS encrypts the connection between your browser and
+            the website. This helps to prevent other parties on the
+            network from reading or changing the traffic between you
+            and the site.
+        </p>
+
+
+        <h3>
+            Why this domain?
+        </h3>
+
+
+        <p>
+            I wanted something memorable, not just some generic
+            developer portfolio domain name.
+        </p>
+
+
+        <a
+            href="../index.html"
+            class="back"
+        >
+            ← back to index.html
+        </a>
+
+
+    </main>
+
+
+</div>
+
+
+<!-- USE THE SAME THEME AS THE MAIN PAGE -->
+
+<script src="../script.js"></script>
+
+
+</body>
+
+</html>
