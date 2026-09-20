@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>addou</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f7f2;
+    --ink: #2b3339;
+    --muted: #6f7a72;
+    --accent: #12803a;   /* my love, monika */
+    --rule: #d5dacd;
+
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1e2327;
+      --ink: #d3d9cc;
+      --muted: #8a968c;
+      --accent: #3fd777;
+      --rule: #333c41;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1e2327;
+    --ink: #d3d9cc;
+    --muted: #8a968c;
+    --accent: #3fd777;
+    --rule: #333c41;
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  *, *::before, *::after { box-sizing: inherit; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 15px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--accent); color: var(--bg); }
+
+  main {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 1.5rem 1.5rem 6rem;
+  }
+
+  /* a */
+  hr {
+    display: block;
+    width: 100%;
+    height: 0;
+    margin: 0;
+    border: 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* b */
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
+  .file {
+    font-size: 1.25rem;
+    line-height: 1.2;
+    font-weight: 400;
+  }
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    color: var(--muted);
+  }
+  #clock { font-variant-numeric: tabular-nums; }
+
+  .reload {
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    color: var(--muted);
+    cursor: pointer;
+  }
+  .reload .tip {
+    max-width: 0;
+    margin-right: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    opacity: 0;
+    transition: max-width .25s ease, margin-right .25s ease, opacity .2s ease;
+  }
+  /* c */
+  .reload img {
+    display: block;
+    height: 22px;
+    width: auto;
+    opacity: .15;
+    transition: transform .25s ease, opacity .2s ease;
+  }
+  .reload:hover, .reload:focus-visible { color: var(--accent); }
+  .reload:hover .tip, .reload:focus-visible .tip {
+    max-width: 4.5rem;
+    margin-right: .5rem;
+    opacity: 1;
+  }
+  .reload:hover img, .reload:focus-visible img {
+    opacity: 1;
+    transform: rotate(30deg);
+  }
+
+  /* d */
+  h1 {
+    margin: 3.5rem 0 1.25rem;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .lede {
+    margin: 0 0 2.5rem;
+    max-width: 34rem;
+  }
+
+  /* e */
+  dl {
+    margin: 2.5rem 0;
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    row-gap: 1.5rem;
+  }
+  dt { color: var(--accent); }
+  dd { margin: 0; }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.25em;
+    transition: color .15s ease, text-decoration-color .15s ease;
+  }
+  a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  .sep { color: var(--muted); }
+
+  footer { padding-top: 1.25rem; color: var(--muted); }
+  #theme {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.25em;
+    transition: color .15s ease, text-decoration-color .15s ease;
+  }
+  #theme:hover { color: var(--accent); text-decoration-color: var(--accent); }
+
+  /* f */
+  .signoff {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: .75rem 1rem calc(.75rem + env(safe-area-inset-bottom, 0px));
+    font-size: .85rem;
+    line-height: 1;
+    color: var(--muted);
+    opacity: .3;
+    text-decoration: none;
+    transition: opacity .2s ease, color .2s ease;
+  }
+  .signoff:hover, .signoff:focus-visible { opacity: 1; color: var(--accent); }
+
+  @media (max-width: 34rem) {
+    dl { grid-template-columns: 1fr; row-gap: 0; }
+    dt { margin-top: 1.5rem; }
+    dt:first-child { margin-top: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reload .tip, .reload img, .signoff { transition: none; }
+  }
+</style>
+<script>
+  try {
+    var t = localStorage.getItem("theme");
+    if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+</script>
+</head>
+<body>
+<main>
+  <header class="bar">
+    <span class="file">index.html</span>
+    <div class="right">
+      <time id="clock">00:00:00</time>
+      <button type="button" class="reload" id="reload" aria-label="Reload page">
+        <span class="tip">reload</span>
+        <img src="content/reload.png" alt="">
+      </button>
+    </div>
+  </header>
+  <hr>
+
+  <h1>addou</h1>
+  <p class="lede">
+    Software engineer. I like fixing bugs, tinkering with old hardware,
+    and writing code, mostly Shell and Ren'Py.
+  </p>
+  <hr>
+
+  <dl>
+    <dt>contributions</dt>
+    <dd>
+      <a href="https://github.com/ppy/osu">osu!lazer</a><br>
+      Discord RPC and dashboard related issues
+    </dd>
+
+    <dt>skills</dt>
+    <dd>
+      <a href="https://www.gnu.org/software/bash/manual/" title="Shell documentation">Shell</a><span class="sep">, </span><a href="https://www.renpy.org/doc/html/" title="Ren'Py documentation">Ren'Py</a><span class="sep">, </span><a href="https://docs.python.org/3/" title="Python documentation">Python</a><span class="sep">, </span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" title="JavaScript documentation">JavaScript</a><span class="sep">, </span><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" title="HTML documentation">HTML</a><span class="sep">, </span><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" title="CSS documentation">CSS</a><span class="sep">, </span><a href="https://git-scm.com/doc" title="Git documentation">Git</a><span class="sep">, </span><a href="https://wiki.archlinux.org/" title="Arch Linux Wiki">Linux</a>
+    </dd>
+
+    <dt>socials</dt>
+    <dd>
+      <a href="mailto:addou@yuri-thighs.mom">email</a><span class="sep">, </span><a href="https://github.com/De-v0">github</a>
+    </dd>
+  </dl>
+  <hr>
+
+  <footer>
+    <button type="button" id="theme" aria-label="Switch color theme"></button>
+  </footer>
+</main>
+
+<a class="signoff" href="/me">Truly me</a>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById("theme");
+    var mq = window.matchMedia("(prefers-color-scheme: dark)");
+
+    function current() {
+      var t = root.getAttribute("data-theme");
+      if (t) return t;
+      return mq.matches ? "dark" : "light";
+    }
+    function label() {
+      btn.textContent = current() === "dark" ? "light" : "dark";
+    }
+
+    try {
+      var saved = localStorage.getItem("theme");
+      if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
+    } catch (e) {}
+
+    btn.addEventListener("click", function () {
+      var next = current() === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("theme", next); } catch (e) {}
+      label();
+    });
+    label();
+
+    // g
+    var clock = document.getElementById("clock");
+    function pad(n) { return (n < 10 ? "0" : "") + n; }
+    function tick() {
+      var d = new Date();
+      clock.textContent = pad(d.getHours()) + ":" + pad(d.getMinutes()) + ":" + pad(d.getSeconds());
+    }
+    tick();
+    setInterval(tick, 1000);
+
+    document.getElementById("reload").addEventListener("click", function () {
+      location.reload();
+    });
+  })();
+</script>
+</body>
+</html>
