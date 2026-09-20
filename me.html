@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>me</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* my love, monika */
+    --bg: #fcf7fa;
+    --ink: #36293d;
+    --muted: #7b6b84;
+    --accent: #a83a72;
+    --soft: #ecdde6;
+
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  /* a */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1d1720;
+      --ink: #ede4ef;
+      --muted: #a898b0;
+      --accent: #f08ab8;
+      --soft: #3a2e42;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1d1720;
+    --ink: #ede4ef;
+    --muted: #a898b0;
+    --accent: #f08ab8;
+    --soft: #3a2e42;
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  *, *::before, *::after { box-sizing: inherit; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Literata", Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--accent); color: var(--bg); }
+
+  /* b */
+  main {
+    max-width: 36rem;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 6rem;
+  }
+
+  .back {
+    margin: 0 0 4.5rem;
+    font-size: .9rem;
+    color: var(--muted);
+  }
+
+  h1 {
+    margin: 0 0 1.5rem;
+    font-size: 2.4rem;
+    line-height: 1.15;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+  h2 {
+    margin: 4rem 0 1rem;
+    font-size: 1.3rem;
+    line-height: 1.3;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  p { margin: 0 0 1.25rem; }
+  .lead { font-size: 1.15rem; }
+
+  /* c */
+  ul {
+    margin: 0 0 1.5rem;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    padding: .35rem 0 .35rem 1.25rem;
+    border-left: 2px solid var(--soft);
+  }
+  li + li { margin-top: .15rem; }
+
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: var(--soft);
+    text-decoration-thickness: 2px;
+    text-underline-offset: .22em;
+    transition: text-decoration-color .15s ease;
+  }
+  a:hover { text-decoration-color: var(--accent); }
+  a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+  .back a { color: var(--muted); }
+  .back a:hover { color: var(--accent); }
+
+  @media (max-width: 34rem) {
+    body { font-size: 17px; }
+    main { padding-top: 2.5rem; }
+    .back { margin-bottom: 3rem; }
+    h1 { font-size: 2rem; }
+  }
+</style>
+<script>
+  /* d */
+  try {
+    var t = localStorage.getItem("theme");
+    if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+</script>
+</head>
+<body>
+<main>
+  <p class="back"><a href="/">home</a></p>
+
+  <h1>Hi, I'm Addou Mehdi.</h1>
+  <p class="lead">
+    You can call me eD, I am a passionate software engineer currently
+    aiming for the big leagues. Here are some of my Interests.
+  </p>
+
+  <h2>Stories</h2>
+  <p>
+    Speaking about stories is specifically manga and anime, currently
+    into Yuri manga and romance anime.
+  </p>
+  <p>
+    Most of my progress is saved on my
+    <a href="https://anilist.co/user/AddouDevoo/">AniList</a>.
+  </p>
+
+  <h2>Visual novels</h2>
+  <p>
+    Visual novels for me are games that combine a story with
+    choice-making related endings, I've played:
+  </p>
+  <ul>
+    <li>Doki Doki Literature Club Plus!</li>
+    <li>Umineko no Naku Koro ni</li>
+    <li>Nekopara, all volumes</li>
+    <li>Narcissu</li>
+    <li>Chasing Tails</li>
+  </ul>
+  <p>
+    Monika from DDLC is legitimately a GOAT OF ALL TIMES, it's a fucking
+    mix of beauty, leadership and absolute peak.
+  </p>
+
+  <h2>Speedrunning</h2>
+  <p>
+    I'm a passionate speedrunner. Right now I'm going for Quake Enhanced
+    and STRAFTAT. What inspires me to continue is mostly holding a
+    leaderboard spot that may give an image to my name.
+  </p>
+
+</main>
+</body>
+</html>
